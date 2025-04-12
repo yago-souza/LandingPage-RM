@@ -78,11 +78,3 @@ A aplicação se adapta a diferentes tamanhos de tela:
 ## 📝 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## 🤝 Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
-
-## 📧 Contato
-
-Para dúvidas ou sugestões, entre em contato através do repositório. 
