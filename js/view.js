@@ -1,52 +1,52 @@
-class CharacterView {
+class VisualizacaoPersonagem {
     constructor() {
-        this.gridContainer = document.getElementById('characters-grid');
+        this.containerGrid = document.getElementById('characters-grid');
     }
 
-    renderCharacters(characters) {
-        this.gridContainer.innerHTML = '';
+    renderizarPersonagens(personagens) {
+        this.containerGrid.innerHTML = '';
         
-        characters.forEach(character => {
-            const card = this.createCharacterCard(character);
-            this.gridContainer.appendChild(card);
+        personagens.forEach(personagem => {
+            const card = this.criarCardPersonagem(personagem);
+            this.containerGrid.appendChild(card);
         });
     }
 
-    createCharacterCard(character) {
+    criarCardPersonagem(personagem) {
         const card = document.createElement('div');
         card.className = 'character-card';
 
-        const image = document.createElement('img');
-        image.className = 'character-image';
-        image.src = character.image;
-        image.alt = character.name;
+        const imagem = document.createElement('img');
+        imagem.className = 'character-image';
+        imagem.src = personagem.image;
+        imagem.alt = personagem.name;
 
         const info = document.createElement('div');
         info.className = 'character-info';
 
-        const name = document.createElement('h2');
-        name.className = 'character-name';
-        name.textContent = character.name;
+        const nome = document.createElement('h2');
+        nome.className = 'character-name';
+        nome.textContent = personagem.name;
 
         const status = document.createElement('span');
-        status.className = `character-status status-${character.status.toLowerCase()}`;
-        status.textContent = character.status;
+        status.className = `character-status status-${personagem.status.toLowerCase()}`;
+        status.textContent = personagem.status;
 
-        const species = document.createElement('p');
-        species.className = 'character-species';
-        species.textContent = character.species;
+        const especie = document.createElement('p');
+        especie.className = 'character-species';
+        especie.textContent = personagem.species;
 
-        info.appendChild(name);
+        info.appendChild(nome);
         info.appendChild(status);
-        info.appendChild(species);
+        info.appendChild(especie);
 
-        card.appendChild(image);
+        card.appendChild(imagem);
         card.appendChild(info);
 
         return card;
     }
 
-    showError(message) {
-        this.gridContainer.innerHTML = `<div class="error-message">${message}</div>`;
+    mostrarErro(mensagem) {
+        this.containerGrid.innerHTML = `<div class="error-message">${mensagem}</div>`;
     }
 } 

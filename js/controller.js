@@ -1,15 +1,15 @@
-class CharacterController {
-    constructor(model, view) {
-        this.model = model;
-        this.view = view;
+class ControladorPersonagem {
+    constructor(modelo, visualizacao) {
+        this.modelo = modelo;
+        this.visualizacao = visualizacao;
     }
 
-    async init() {
+    async iniciar() {
         try {
-            const characters = await this.model.getCharacters();
-            this.view.renderCharacters(characters);
-        } catch (error) {
-            this.view.showError('Erro ao carregar os personagens. Por favor, tente novamente mais tarde.');
+            const personagens = await this.modelo.buscarPersonagens();
+            this.visualizacao.renderizarPersonagens(personagens);
+        } catch (erro) {
+            this.visualizacao.mostrarErro('Erro ao carregar os personagens. Por favor, tente novamente mais tarde.');
         }
     }
 } 

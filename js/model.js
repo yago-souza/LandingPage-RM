@@ -1,19 +1,19 @@
-class CharacterModel {
+class ModeloPersonagem {
     constructor() {
-        this.apiUrl = 'https://rickandmortyapi.com/api/character';
+        this.urlApi = 'https://rickandmortyapi.com/api/character';
     }
 
-    async getCharacters() {
+    async buscarPersonagens() {
         try {
-            const response = await fetch(this.apiUrl);
-            if (!response.ok) {
+            const resposta = await fetch(this.urlApi);
+            if (!resposta.ok) {
                 throw new Error('Erro ao buscar personagens');
             }
-            const data = await response.json();
-            return data.results;
-        } catch (error) {
-            console.error('Erro no Model:', error);
-            throw error;
+            const dados = await resposta.json();
+            return dados.results;
+        } catch (erro) {
+            console.error('Erro no Modelo:', erro);
+            throw erro;
         }
     }
 } 
