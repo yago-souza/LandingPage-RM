@@ -92,6 +92,25 @@ main {
     font-size: 0.9rem;
 }
 
+.loading-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.error-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 1rem;
+    background-color: #fee;
+    color: #c00;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
 @media (max-width: 1024px) {
     .grid-container {
         grid-template-columns: repeat(3, 1fr);
@@ -108,4 +127,48 @@ main {
     .grid-container {
         grid-template-columns: 1fr;
     }
+}
+
+.btn-voltar-topo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: auto;
+    height: auto;
+    min-width: 100px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    background-color: #42b4ca;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-voltar-topo .icone {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-voltar-topo .texto {
+    font-weight: 500;
+}
+
+.btn-voltar-topo.visivel {
+    display: flex;
+    opacity: 1;
+}
+
+.btn-voltar-topo:hover {
+    background-color: #3aa3b8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 } 

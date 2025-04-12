@@ -1,10 +1,13 @@
 class VisualizacaoPersonagem {
     constructor() {
         this.containerGrid = document.getElementById('characters-grid');
+        this.carregando = false;
     }
 
-    renderizarPersonagens(personagens) {
-        this.containerGrid.innerHTML = '';
+    renderizarPersonagens(personagens, limparExistentes = false) {
+        if (limparExistentes) {
+            this.containerGrid.innerHTML = '';
+        }
         
         personagens.forEach(personagem => {
             const card = this.criarCardPersonagem(personagem);
@@ -47,6 +50,27 @@ class VisualizacaoPersonagem {
     }
 
     mostrarErro(mensagem) {
-        this.containerGrid.innerHTML = `<div class="error-message">${mensagem}</div>`;
+        const erro = document.createElement('div');
+        erro.className = 'error-message';
+        erro.textContent = mensagem;
+        this.containerGrid.appendChild(erro);
+    }
+
+    mostrarCarregando() {
+        if (!this.carregando) {
+            const loadingElement = document.createElement('div');
+            loadingElement.className = 'loading-message';
+            loadingElement.textContent = 'Carregando mais personagens...';
+            this.containerGrid.appendChild(loadingElement);
+            this.carregando = true;
+        }
+    }
+
+    ocultarCarregando() {
+        const loadingElement = this.containerGrid.querySelector('.loading-message');
+        if (loadingElement) {
+            loadingElement.remove();
+        }
+        this.carregando = false;
     }
 } 
